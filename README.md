@@ -1,6 +1,7 @@
 # Consul API for Dart
 
 [![Build Status](https://travis-ci.com/adaptant-labs/consul-dart.svg?branch=master)](https://travis-ci.com/adaptant-labs/consul-dart#)
+[![Pub](https://img.shields.io/pub/v/consul.svg)](https://pub.dev/packages/consul)
 
 This provides an implementation of the HashiCorp Consul REST API in Dart.
 
