@@ -37,15 +37,14 @@ class AgentServiceRegistration {
   final String address;
   final AgentServiceCheck check;
 
-  AgentServiceRegistration({
-    this.kind,
-    this.id,
-    @required this.name,
-    this.tags,
-    this.port,
-    this.address,
-    this.check
-  });
+  AgentServiceRegistration(
+      {this.kind,
+      this.id,
+      @required this.name,
+      this.tags,
+      this.port,
+      this.address,
+      this.check});
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -103,20 +102,20 @@ class AgentService {
   });
 
   factory AgentService.fromJson(Map<String, dynamic> json) => AgentService(
-    kind: json['Kind'],
-    id: json['ID'],
-    service: json['Service'],
-    meta: mapFromJson(json['Meta']).cast(),
-    tags: json['Tags']?.cast<String>(),
-    address: json['Address'],
-    port: json['Port'],
-    taggedAddresses: ServiceAddressModel.fromJson(json['TaggedAddresses']),
-    weights: AgentWeights.fromJson(json['Weights']),
-    enableTagOverride: json['EnableTagOverride'],
-    createIndex: json['CreateIndex'],
-    modifyIndex: json['ModifyIndex'],
-    contentHash: json['ContentHash'],
-  );
+        kind: json['Kind'],
+        id: json['ID'],
+        service: json['Service'],
+        meta: mapFromJson(json['Meta']).cast(),
+        tags: json['Tags']?.cast<String>(),
+        address: json['Address'],
+        port: json['Port'],
+        taggedAddresses: ServiceAddressModel.fromJson(json['TaggedAddresses']),
+        weights: AgentWeights.fromJson(json['Weights']),
+        enableTagOverride: json['EnableTagOverride'],
+        createIndex: json['CreateIndex'],
+        modifyIndex: json['ModifyIndex'],
+        contentHash: json['ContentHash'],
+      );
 
   static Map<String, dynamic> mapFromJson(Map<String, dynamic> json) {
     var map = <String, dynamic>{};
@@ -134,15 +133,12 @@ class AgentWeights {
   final int passing;
   final int warning;
 
-  AgentWeights({
-    this.passing,
-    this.warning
-  });
+  AgentWeights({this.passing, this.warning});
 
   factory AgentWeights.fromJson(Map<String, dynamic> json) => AgentWeights(
-    passing: json['Passing'],
-    warning: json['Warning'],
-  );
+        passing: json['Passing'],
+        warning: json['Warning'],
+      );
 
   @override
   String toString() {
@@ -208,11 +204,12 @@ class AgentServiceChecksInfo {
     this.checks,
   });
 
-  factory AgentServiceChecksInfo.fromJson(Map<String, dynamic> json) => AgentServiceChecksInfo(
-    aggregatedStatus: json['AggregatedStatus'],
-    service: AgentService.fromJson(json['Service']),
-    checks: HealthChecksModel.fromJsonList(json['Checks']).healthChecks,
-  );
+  factory AgentServiceChecksInfo.fromJson(Map<String, dynamic> json) =>
+      AgentServiceChecksInfo(
+        aggregatedStatus: json['AggregatedStatus'],
+        service: AgentService.fromJson(json['Service']),
+        checks: HealthChecksModel.fromJsonList(json['Checks']).healthChecks,
+      );
 
   @override
   String toString() {

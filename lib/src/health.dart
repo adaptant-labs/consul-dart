@@ -36,14 +36,16 @@ class HealthCheckDefinition {
     this.deregisterCriticalServiceAfterDuration,
   });
 
-  factory HealthCheckDefinition.fromJson(Map<String, dynamic> json) => HealthCheckDefinition(
-    http: json['HTTP'],
-    method: json['Method'],
-    tlsSkipVerify: json['TLSSkipVerify'],
-    intervalDuration: json['Interval'],
-    timeoutDuration: json['Timeout'],
-    deregisterCriticalServiceAfterDuration: json['DeregisterCriticalServiceAfter'],
-  );
+  factory HealthCheckDefinition.fromJson(Map<String, dynamic> json) =>
+      HealthCheckDefinition(
+        http: json['HTTP'],
+        method: json['Method'],
+        tlsSkipVerify: json['TLSSkipVerify'],
+        intervalDuration: json['Interval'],
+        timeoutDuration: json['Timeout'],
+        deregisterCriticalServiceAfterDuration:
+            json['DeregisterCriticalServiceAfter'],
+      );
 
   @override
   String toString() {
@@ -73,15 +75,15 @@ class HealthCheck {
   });
 
   factory HealthCheck.fromJson(Map<String, dynamic> json) => HealthCheck(
-    node: json['Node'],
-    checkId: json['CheckID'],
-    name: json['Name'],
-    status: json['Status'],
-    notes: json['Notes'],
-    serviceId: json['ServiceID'],
-    serviceName: json['ServiceName'],
-    definition: HealthCheckDefinition.fromJson(json['Definition']),
-  );
+        node: json['Node'],
+        checkId: json['CheckID'],
+        name: json['Name'],
+        status: json['Status'],
+        notes: json['Notes'],
+        serviceId: json['ServiceID'],
+        serviceName: json['ServiceName'],
+        definition: HealthCheckDefinition.fromJson(json['Definition']),
+      );
 
   @override
   String toString() {

@@ -26,9 +26,9 @@ class ServiceAddress {
   ServiceAddress({this.address, this.port});
 
   factory ServiceAddress.fromJson(Map<String, dynamic> json) => ServiceAddress(
-    address: json['Address'],
-    port: json['Port'],
-  );
+        address: json['Address'],
+        port: json['Port'],
+      );
 
   @override
   String toString() {
